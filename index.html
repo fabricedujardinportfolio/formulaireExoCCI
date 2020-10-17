@@ -86,7 +86,6 @@
 
 <body>
     <div class="container">
-
         <form id="myForm" class="myForm">
             <h1 class="titleForm">FORMULAIRE HTML</h1>
             <div class="containeridUser">
@@ -108,7 +107,7 @@
                     <div class="containerNumberContainerdateNaissance">
                         <!-- Date de naissance -->
                         <label for="dateNaissance">Enter votre date de naissance:</label>
-                        <input type="date" name="dateNaissance" id="dateNaissance">
+                        <input type="date" name="dateNaissance" id="dateNaissance" required>
                     </div>
                     <div class="containerNumberContainerphone">
                         <!-- Numéro de téléphone -->
@@ -128,7 +127,7 @@
                     <div class="containeruserSecretContainerpassword">
                         <!-- Mot de passe -->
                         <label for="pwd">Password:</label>
-                        <input type="password" id="pwd" name="pwd">
+                        <input type="password" id="pwd" name="pwd" minlength="4" maxlength="8" required>
                     </div>
                 </div>
             </div>
