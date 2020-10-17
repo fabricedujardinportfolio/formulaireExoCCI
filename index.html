@@ -213,9 +213,29 @@
                 });
             });
 
-        $('div.containeruserSecret').hover(function () {
-            $('.containerApsolute').css('background-color', 'red');
-        })
+        $('div.containeruserSecret').hover(
+            function () {
+                $('.containerApsolute').css({
+                    'background-color': 'red'
+                });
+            },
+            function () {
+                $('.containerApsolute').css({
+                    "background-color": "white"
+                });
+            });
+
+        $('input.submit').hover(
+            function () {
+                $('.containerApsolute').css({
+                    'background-color': 'violet'
+                });
+            },
+            function () {
+                $('.containerApsolute').css({
+                    "background-color": "white"
+                });
+            });
 
         $("#myForm").ready(function () {
             $("form").submit(function () {
