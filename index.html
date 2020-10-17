@@ -4,11 +4,18 @@
 <head>
     <meta charset="utf-8">
     <title>Formulaire HTML</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
         .myForm {
             margin: auto;
-            width: 350px;
+            width: 330px;
 
         }
 
@@ -19,14 +26,39 @@
             width: calc(100% - 44px);
         }
 
+        .containerTop {
+            display: block;
+        }
+
+        .containerApsolute {
+            width: 100%;
+            opacity: 0.1;
+            display: flex;
+            position: absolute;
+            height: 100vh;
+            background-color: tomato;
+        }
+
         .container {
             height: 100vh;
             display: flex;
             /* contexte sur le parent */
-            flex-direction: column;
-            /* direction d'affichage verticale */
             justify-content: center;
             /* alignement vertical */
+            background-image: url('form-exo.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .containerform {
+            width: 50%;
+            background-color: white;
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .titleForm {
@@ -39,6 +71,10 @@
         .containeridUsercontainer {
             display: flex;
             justify-content: space-evenly;
+        }
+
+        .containerlocationBlock {
+            width: 25%;
         }
 
         .containeridUsercontainerprenom {
@@ -85,63 +121,82 @@
 </head>
 
 <body>
-    <div class="container">
-        <form id="myForm" class="myForm">
-            <h1 class="titleForm">FORMULAIRE HTML</h1>
-            <div class="containeridUser">
-                <div class="containeridUsercontainer">
-                    <div class="containeridUsercontainerprenom">
-                        <!-- Prénom -->
-                        <label for="firstName">Prénom:</label><br>
-                        <input type="text" id="firstName" name="firstName" minlength="1" maxlength="10"><br>
+    <div class="containerTop">
+        <div class="containerApsolute"></div>
+        <div class="container">
+            <div class="containerlocationBlock"></div>
+            <div class="containerform">
+                <form id="myForm" class="myForm">
+                    <h1 class="titleForm">FORMULAIRE HTML</h1>
+                    <div class="containeridUser">
+                        <div class="containeridUsercontainer">
+                            <div class="containeridUsercontainerprenom">
+                                <!-- Prénom -->
+                                <label for="firstName">Prénom:</label><br>
+                                <input type="text" id="firstName" name="firstName" minlength="1" maxlength="10"><br>
+                            </div>
+                            <div class="containeridUsercontainernom">
+                                <!-- Nom -->
+                                <label for="name">Nom:</label><br>
+                                <input type="text" id="name" name="name" minlength="1" maxlength="10"><br><br>
+                            </div>
+                        </div>
                     </div>
-                    <div class="containeridUsercontainernom">
-                        <!-- Nom -->
-                        <label for="name">Nom:</label><br>
-                        <input type="text" id="name" name="name" minlength="1" maxlength="10"><br><br>
+                    <div class="containerNumber">
+                        <div class="containerNumberContainer">
+                            <div class="containerNumberContainerdateNaissance">
+                                <!-- Date de naissance -->
+                                <label for="dateNaissance">Enter votre date de naissance:</label>
+                                <input type="date" name="dateNaissance" id="dateNaissance" required>
+                            </div>
+                            <div class="containerNumberContainerphone">
+                                <!-- Numéro de téléphone -->
+                                <label for="phone">Enter votre numéro de téléphone:</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}"
+                                    required><br>
+                                <small><strong>Format: 97-58-16</strong></small><br><br>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="containeruserSecret">
+                        <div class="containeruserSecretContainer">
+                            <div class="containeruserSecretContainerEmail">
+                                <!-- Mail -->
+                                <label for="email">Enter votre email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="containeruserSecretContainerpassword">
+                                <!-- Mot de passe -->
+                                <label for="pwd">Password:</label>
+                                <input type="password" id="pwd" name="pwd" minlength="4" maxlength="8" required
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- Envoyez -->
+                    <input type="submit" value="Submit" class="submit">
+                </form>
             </div>
-            <div class="containerNumber">
-                <div class="containerNumberContainer">
-                    <div class="containerNumberContainerdateNaissance">
-                        <!-- Date de naissance -->
-                        <label for="dateNaissance">Enter votre date de naissance:</label>
-                        <input type="date" name="dateNaissance" id="dateNaissance" required>
-                    </div>
-                    <div class="containerNumberContainerphone">
-                        <!-- Numéro de téléphone -->
-                        <label for="phone">Enter votre numéro de téléphone:</label>
-                        <input type="tel" id="phone" name="phone" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}" required><br>
-                        <small><strong>Format: 97-58-16</strong></small><br><br>
-                    </div>
-                </div>
-            </div>
-            <div class="containeruserSecret">
-                <div class="containeruserSecretContainer">
-                    <div class="containeruserSecretContainerEmail">
-                        <!-- Mail -->
-                        <label for="email">Enter votre email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="containeruserSecretContainerpassword">
-                        <!-- Mot de passe -->
-                        <label for="pwd">Password:</label>
-                        <input type="password" id="pwd" name="pwd" minlength="4" maxlength="8" required
-                            autocomplete="off">
-                    </div>
-                </div>
-            </div>
-            <br>
-            <br>
-            <!-- Envoyez -->
-            <input type="submit" value="Submit" class="submit">
-        </form>
+            <div class="containerlocationBlock"></div>
+        </div>
     </div>
     <script type="text/javascript">
         document.getElementById('myForm').onsubmit = function (event) {
             event.preventDefault();
         };
+    </script>
+    <script>
+        $('div.containeridUser').hover(function () {
+            $('.containerApsolute').css('background-color', 'blue');
+        })
+        $('div.containerNumber').hover(function () {
+            $('.containerApsolute').css('background-color', 'wheat');
+        })
+        $('div.containeruserSecret').hover(function () {
+            $('.containerApsolute').css('background-color', 'red');
+        })
     </script>
 </body>
 
