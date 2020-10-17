@@ -188,15 +188,41 @@
         };
     </script>
     <script>
-        $('div.containeridUser').hover(function () {
-            $('.containerApsolute').css('background-color', 'blue');
-        })
-        $('div.containerNumber').hover(function () {
-            $('.containerApsolute').css('background-color', 'wheat');
-        })
+        $('div.containeridUser').hover(
+            function () {
+                $('.containerApsolute').css({
+                    'background-color': 'blue'
+                });
+            },
+            function () {
+                $(".containerApsolute").css({
+                    "background-color": "white"
+                });
+            }
+        );
+
+        $('div.containerNumber').hover(
+            function () {
+                $('.containerApsolute').css({
+                    'background-color': 'green'
+                });
+            },
+            function () {
+                $('.containerApsolute').css({
+                    "background-color": "white"
+                });
+            });
+
         $('div.containeruserSecret').hover(function () {
             $('.containerApsolute').css('background-color', 'red');
         })
+
+        $("#myForm").ready(function () {
+            $("form").submit(function () {
+                alert("Merci pour votre participation ");
+                $("form").trigger("reset");
+            });
+        });
     </script>
 </body>
 
